@@ -62,10 +62,42 @@ For the MobileSAMv2 decoder path, use:
 python example_inference_mobilesamv2.py \
   --checkpoint /path/to/mobile_sam.pt \
   --prompt-decoder-checkpoint /path/to/Prompt_guided_Mask_Decoder.pt \
-  --object-aware-model-checkpoint /path/to/ObjectAwareModel.pt
+  --object-aware-model-checkpoint /path/to/ObjectAwareModel.pt \
+  --image /path/to/image.jpg \
+  --output-dir wheel_verify_mobilesamv2_output
 ```
 
-This script verifies the packaged MobileSAMv2 pipeline with `ObjectAwareModel` box proposals plus the prompt-guided decoder, and writes `boxes.png`, `mask_union.png`, `mask_union_overlay.png`, and `mask_overlay.png` into the chosen output directory.
+This script runs the MobileSAMv2 seg-every pipeline with `ObjectAwareModel` box proposals plus the prompt-guided decoder.
+
+Inputs:
+
+- `--checkpoint`: image encoder checkpoint
+- `--prompt-decoder-checkpoint`: `Prompt_guided_Mask_Decoder.pt`
+- `--object-aware-model-checkpoint`: `ObjectAwareModel.pt`
+- `--image`: optional input image path. If omitted, the script uses a synthetic test image.
+- `--output-dir`: directory for generated visualizations
+- Optional tuning args: `--encoder-type`, `--imgsz`, `--iou`, `--conf`, `--retina`, `--decoder-batch-size`, `--min-box-area-ratio`, `--max-box-area-ratio`
+
+Outputs:
+
+- Console summary with device, input image shape, detected box count, filtered box count, mask tensor shape, and saved output path
+- `boxes.png`: detected boxes after filtering
+- `mask_union.png`: binary union of all predicted masks
+- `mask_union_overlay.png`: union mask blended over the input image
+- `mask_overlay.png`: per-mask color overlay for the seg-every result
+
+Example assets for the MobileSAMv2 seg-every flow:
+
+Input image:
+
+![MobileSAMv2 seg-every input](asset/input.png)
+
+Output overlay:
+
+![MobileSAMv2 seg-every output](asset/mask_overlay.png)
 
 ## Reference: Official MobileSAM repository 
 https://github.com/chaoningzhang/mobilesam
+
+If you find this repo useful to you please consider click the button below to donate and support my work!
+[![Buy Me A Coffee](https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png)](https://buymeacoffee.com/bill2239)
