@@ -40,6 +40,8 @@ model.eval()
 predictor = SamPredictor(model)
 ```
 
+For a Jupyter notebook walkthrough that installs from `pip` and runs single-prompt mobilesam inference, see [examples/mobilesam_single_point_inference.ipynb](examples/mobilesam_single_point_inference.ipynb).
+
 ## Verify an installed wheel
 
 After installing the wheel into a clean environment, run:
