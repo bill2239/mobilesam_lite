@@ -41,8 +41,10 @@ predictor = SamPredictor(model)
 ```
 
 For a Jupyter notebook walkthrough that installs from `pip` and runs single-prompt mobilesam inference, see [examples/mobilesam_single_point_inference.ipynb](examples/mobilesam_single_point_inference.ipynb).
+or open the notebook diectly in google colab to play wtih [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](
+https://colab.research.google.com/github/bill2239/mobilesam_lite/blob/main/examples/mobilesam_single_point_inference.ipynb)
 
-## Verify an installed wheel
+## Examples for inference
 
 After installing the wheel into a clean environment, run:
 
@@ -88,7 +90,7 @@ Outputs:
 - `mask_union_overlay.png`: union mask blended over the input image
 - `mask_overlay.png`: per-mask color overlay for the seg-every result
 
-Example assets for the MobileSAMv2 seg-every flow:
+Example for the MobileSAMv2 seg-every flow with segmentation mask visulization:
 
 Input image:
 
