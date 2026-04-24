@@ -1,4 +1,5 @@
 # MobileSAM_lite 
+[![PyPI Downloads](https://static.pepy.tech/personalized-badge/mobilesam-lite?period=total&units=INTERNATIONAL_SYSTEM&left_color=BLACK&right_color=GREEN&left_text=downloads)](https://pepy.tech/projects/mobilesam-lite)
 
 An unofficial Python package for MobileSAM and MobileSAMv2 runtime that adds support for lighter encoder models not available in the original implementation.
 
@@ -14,7 +15,7 @@ pip install -e .
 pip install mobilesam-lite
 ```
 
-Download the model weight provided by original repo [checkpoints](https://drive.google.com/file/d/1dE-YAG-1mFCBmao2rHDp0n-PP4eH7SjE/view?usp=sharing)
+Download the model weight provided by original repo [checkpoints](https://drive.google.com/file/d/1dE-YAG-1mFCBmao2rHDp0n-PP4eH7SjE/view?usp=sharing). 
 
 ## Example
 
@@ -34,6 +35,8 @@ predictor = SamPredictor(model)
 For a Jupyter notebook walkthrough that installs from `pip` and runs single-prompt mobilesam inference, see [examples/mobilesam_single_point_inference.ipynb](examples/mobilesam_single_point_inference.ipynb).
 or open the notebook diectly in google colab to play wtih [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](
 https://colab.research.google.com/github/bill2239/mobilesam_lite/blob/main/examples/mobilesam_single_point_inference.ipynb)
+
+the segmentation result of the would be shown like ![MobileSAM seg-any output](asset/outmobilesam.png)
 
 ## Examples for inference
 
@@ -71,7 +74,8 @@ Inputs:
 - `--object-aware-model-checkpoint`: `ObjectAwareModel.pt`
 - `--image`: optional input image path. If omitted, the script uses a synthetic test image.
 - `--output-dir`: directory for generated visualizations
-- Optional tuning args: `--encoder-type`, `--imgsz`, `--iou`, `--conf`, `--retina`, `--decoder-batch-size`, `--min-box-area-ratio`, `--max-box-area-ratio`
+- `--encoder-type`: you can choose between supported image encoders tiny_vit, sam_vit_h, efficientvit_l0, efficientvit_l1, efficientvit_l2
+- Optional tuning args: , `--imgsz`, `--iou`, `--conf`, `--retina`, `--decoder-batch-size`, `--min-box-area-ratio`, `--max-box-area-ratio`
 
 Outputs:
 
@@ -81,7 +85,7 @@ Outputs:
 - `mask_union_overlay.png`: union mask blended over the input image
 - `mask_overlay.png`: per-mask color overlay for the seg-every result
 
-Example for the MobileSAMv2 seg-every flow with segmentation mask visulization:
+Example for the MobileSAMv2 seg-every inference with segmentation mask overlay visulization:
 
 Input image:
 
