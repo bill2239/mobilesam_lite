@@ -2,16 +2,6 @@
 
 An unofficial Python package for MobileSAM and MobileSAMv2 runtime that adds support for lighter encoder models not available in the original implementation.
 
-This package vendors the runtime code needed for inference:
-
-- `mobilesamv2`
-- `tinyvit`
-- `efficientvit`
-- `ultralytics` under `mobilesam_lite/_vendor/ultralytics`
-
-It intentionally does not bundle model checkpoints. Download weights separately and pass the checkpoint path at runtime.
-
-The optional `mobilesamv2.promt_mobilesamv2` module now resolves its Ultralytics dependency from the vendored package in `mobilesam_lite._vendor.ultralytics`.
 
 ## Install locally
 
@@ -24,6 +14,7 @@ pip install -e .
 pip install mobilesam-lite
 ```
 
+Download the model weight provided by original repo [checkpoints](https://drive.google.com/file/d/1dE-YAG-1mFCBmao2rHDp0n-PP4eH7SjE/view?usp=sharing)
 
 ## Example
 
