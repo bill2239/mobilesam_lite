@@ -4,13 +4,13 @@
 An unofficial Python package for MobileSAM and MobileSAMv2 runtime that adds support for lighter encoder models not available in the original implementation.
 
 
-## Install locally
+## Install locally:
 
 ```bash
 pip install -e .
 ```
 
-## Install with pypi
+## Install using pip:
 ```bash
 pip install mobilesam-lite
 ```
